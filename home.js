@@ -9,7 +9,7 @@ alert("Numeros iguales, por favor refresque la página e ingrese valores diferen
 alert("Suma: "+(numerito1+numerito2)+" /resta: "+(numerito1-numerito2)+" /Multiplicación: "+(numerito1*numerito2));
 }*/
 
-
+//Variables
 var ingProducto = prompt("Ingrese el nombre del producto \n Leche \n Yerba \n Pan \n Terminar")
 var cantidad = 0
 var leche = 10
@@ -17,12 +17,12 @@ var yerbaMate = 10
 var pan = 10
 
 
-while(leche >0 || yerbaMate > 0 || pan > 0){
-    if(ingProducto === "Leche" && leche >0){ 
+while(leche >0 || yerbaMate > 0 || pan > 0){ //Master while
+    if(ingProducto === "Leche" && leche >0){ //Buliano de producto
         alert(`Seleccionaste ${ingProducto}`);
-        do{
+        do{                                     //While interno por producto
             cantidad = prompt("Ingrese Cantidad (maximo 10)");
-            if(cantidad > 10){
+            if(cantidad > 10){ //Buliano de maximo stock
                 alert("Maximo 10 productos")
                 cantidad = prompt("Ingrese Cantidad (maximo 10)")
             }
@@ -32,18 +32,18 @@ while(leche >0 || yerbaMate > 0 || pan > 0){
             break;
         }while(leche >0); 
     
-    }  
+    }                                                   //While anti negativos
     while(ingProducto === "Leche" && leche === 0){
         alert("Se han agotado las Leches , seleccione otro producto")
         var ingProducto = prompt("Ingrese el nombre del producto \n Leche \n Yerba \n Pan \n Terminar")
     } 
     
 
-    if(ingProducto == "Yerba" && yerbaMate > 0){ 
+    if(ingProducto == "Yerba" && yerbaMate > 0){  //Buliano de producto
         alert(`Seleccionaste ${ingProducto}`);
-        do{
+        do{                                     //While interno por producto
             cantidad = prompt("Ingrese Cantidad (maximo 10)");
-            if(cantidad > 10){
+            if(cantidad > 10){ //Buliano de maximo stock
                 alert("Maximo 10 productos")
                 cantidad = prompt("Ingrese Cantidad (maximo 10)")
             }
@@ -52,7 +52,7 @@ while(leche >0 || yerbaMate > 0 || pan > 0){
             ingProducto = prompt("Ingrese el nombre del producto \n Leche \n Yerba \n Pan \n Terminar");
             break;
         }while(yerbaMate >0);
-    } 
+    }                                               //While anti negativos
     while(ingProducto == "Yerba" && yerbaMate <= 0){
         alert("Se han agotado las Yerba, seleccione otro producto");
         var ingProducto = prompt("Ingrese el nombre del producto \n Leche \n Yerba \n Pan \n Terminar")
@@ -60,12 +60,12 @@ while(leche >0 || yerbaMate > 0 || pan > 0){
     
 
 
-    if(ingProducto == "Pan" && pan > 0){ 
+    if(ingProducto == "Pan" && pan > 0){                //Buliano de producto
         alert(`Seleccionaste ${ingProducto}`);
         
-        do{
+        do{                                             //While interno por producto
         cantidad = prompt("Ingrese Cantidad (maximo 10)");
-        if(cantidad > 10){
+        if(cantidad > 10){ //Buliano de maximo stock
             alert("Maximo 10 productos")
             cantidad = prompt("Ingrese Cantidad (maximo 10)")
         }
@@ -73,27 +73,26 @@ while(leche >0 || yerbaMate > 0 || pan > 0){
         alert(`Quedan ${pan} Pan en stock`);
         ingProducto = prompt("Ingrese el nombre del producto \n Leche \n Yerba \n Pan \n Terminar");
         break;
-        }while(StockSevenup > 0);
-    } while(ingProducto == "Pan" && pan === 0){
+        }while(StockSevenup > 0);                       
+    }                                                    //While anti negativos
+    while(ingProducto == "Pan" && pan === 0){
         alert("Se han agotado el Pan, seleccione otro producto")
         var ingProducto = prompt("Ingrese el nombre del producto \n Leche \n Yerba \n Pan \n Terminar")
     } 
 
 
-    if(ingProducto === "Terminar"){
+    if(ingProducto === "Terminar"){   //"Producto Terminal"
         alert("Muchas Gracias por su compra");
         break;
     }
 
-
-
 }
     
-
-
-    if( leche <= 0 && yerbaMate <= 0 && pan <= 0){
+    if( leche <= 0 && yerbaMate <= 0 && pan <= 0){   //Buliano finalizador
         alert("Se acabaron los Productos. Muchas gracias por su compra")
     }
+
+
 
 
 /*
