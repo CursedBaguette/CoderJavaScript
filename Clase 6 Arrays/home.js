@@ -1,7 +1,7 @@
 
 const registrados = [];
 
-const falopa = document.querySelector('.listado');
+const mShow = document.querySelector('.listado');
 
 //Boton para pedir datos
 function begin() {
@@ -26,9 +26,9 @@ function registrar(nuevoPaciente) {
 
 //Funcion para Mostrar
 function mostrar() {
-    falopa.innerHTML = "Pacientes ";
-    const faso = registrados => falopa.innerHTML +=`   ${registrados.nombre} `;
-    registrados.forEach(faso);
+    mShow.innerHTML = "Pacientes ";
+    const mListado = registrados => mShow.innerHTML +=`   ${registrados.nombre} `;
+    registrados.forEach(mListado);
     
     alert("Por favor chequee la consola");
     console.log(registrados);
