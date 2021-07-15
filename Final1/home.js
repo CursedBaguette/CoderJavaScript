@@ -1,4 +1,4 @@
-let registrados = JSON.parse(localStorage.Registra2);
+let registrados = [];
 var vturno = 1;
 const mShow = document.querySelector('#listado');
 
@@ -23,8 +23,7 @@ function registrar(nuevoPaciente) {
     if (nuevoPaciente.nombre == "") {
         return alert("Faltan Datos, por favor presione 'Comenzar'");
     }
-    localStorage.setItem(`Registra2`, JSON.stringify(nuevoPaciente));
-   // registrados.push(nuevoPaciente);
+    registrados.push(nuevoPaciente);
 };
 //Funcion de Registro
 
@@ -42,11 +41,8 @@ function mostrar() {
 
 function remover(){
     let eliminar = document.querySelector('#limpiar').value;
-    if (eliminar > 1){
-        eliminar--;
-        delete registrados[eliminar];
-    } else {registrados.shift()};
-   
+    eliminar--;
+    delete registrados[eliminar];
     mostrar();
 
 }
