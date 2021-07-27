@@ -3,9 +3,12 @@ body{
 }
 
 li{
-    background-color: grey;
+    background-color: rgb(230, 230, 230);
     color: black;
     border: solid green 1px;
 
 }
 
+.btn{
+    background-color: rgb(100, 52, 189)!important;
+}
