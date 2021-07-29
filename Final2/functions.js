@@ -95,3 +95,4 @@ function generateCSV() {
     hiddenElement.click();
 }
 //Funcion para exportar a CSV
+
