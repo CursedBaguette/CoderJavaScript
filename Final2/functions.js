@@ -1,6 +1,6 @@
-//Boton para pedir datos
 var registrados = JSON.parse(localStorage.getItem('registra2'));
 
+//Boton para pedir datos
 function begin() {
     const paciente = {};
     paciente.nombre = $("#inputName4").val();
@@ -18,34 +18,19 @@ function begin() {
 function registrar(nuevoPaciente) {
     if (nuevoPaciente.nombre == "") {
         return alert("Faltan Datos");
-    }
-
-            ///funcion bugueada//
-    if (registrados.length !== 0) {
+    } else {
         registrados.forEach(function (item) {
             if (nuevoPaciente.dia === item.dia && nuevoPaciente.mes === item.mes && nuevoPaciente.hora === item.hora) {
-                console.log("camino1")
-                alert("turno creado")
-            } else {
-                registrados.push(nuevoPaciente);
-                mostrar()
-                localSave();
-                console.log("camino2")
-            }})
-            ///funcion bugueada//
-        }
-        
-        else if (registrados.length === 0) {
-            registrados.push(nuevoPaciente);
-            mostrar()
-            localSave();
-            console.log("camino3")
-        }
+                alert("Turno Ocupado, por favor seleccione otro horario");
+                throw console.log("Turno ocupado");
+            }
+        })
 
-        
-
-    
-};
+        registrados.push(nuevoPaciente);
+        mostrar();
+        localSave();
+    };
+}
 //Funcion de Registro
 
 //Funcion para Mostrar
@@ -60,58 +45,53 @@ function mostrar() {
             let turnos1 = registrados.indexOf(item);
             mShow.innerHTML += `<li> Turno: ${turnos1+1} &nbsp;&nbsp; ${item.dia}  de ${item.mes} del 2020 A las ${item.hora} turno de ${item.nombre}<i class="ms-4 btn btn-primary bi bi-trash" onclick="remover2(${turnos1})"></i> </li> `;
         });
-        $("#datos").show();
+        $("#datos").fadeIn();
     }
 
 }
 //Funcion para Mostrar
 
+
+//Funcion Quitar
 function remover2(turnos2) {
     registrados = JSON.parse(localStorage.getItem('registra2'))
     registrados.splice(turnos2, 1)
     localStorage.setItem('registra2', JSON.stringify(registrados))
     mostrar();
 }
+//Funcion Quitar
 
 
-
-//Funcion para Mostrar
+//Funcion ocultar
 function remover() {
-    $("#datos").hide();
+    $("#datos").fadeOut();
 }
+//Funcion ocultar
 
 
 
-/*function remover() {
-    console.log(registrados);
-    registrados = JSON.parse(localStorage.getItem('registra2'))
-    let eliminar = $("#limpiar").val();
-    eliminar--
-    registrados.splice(eliminar, 1)
-    localStorage.setItem('registra2', JSON.stringify(registrados))
-    mostrar();
-}*/
-
-
+//Funcion para guardar en local
 function localSave() {
     localStorage.setItem('registra2', JSON.stringify(registrados));
 }
+;
+//Funcion para guardar en local
 
 
 
+//Funcion para exportar a CSV
+function generateCSV() {
+    let csv = 'Nombre, Edad, Peso, Altura, Dia, Mes, Hora\n';
+    registrados.forEach(function(each) {
+        console.log(Object.values(each))
+        csv += Object.values(each).join(',');
+        csv += "\n";
+    });
 
-
-
-
-/*function remover() {
-    console.log(registrados);
-    registrados = JSON.parse(localStorage.getItem('registra2'))
-    let eliminar = document.querySelector('#limpiar').value;
-    eliminar--;
-    if (eliminar == 0){
-        registrados.shift()
-    }
-    delete registrados[eliminar];
-    localStorage.setitem('registra2', JSON.stringify(registrados))
-    mostrar();
-}*/
+    var hiddenElement = document.createElement('a');
+    hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+    hiddenElement.target = '_blank';
+    hiddenElement.download = 'data.csv';
+    hiddenElement.click();
+}
+//Funcion para exportar a CSV

@@ -17,8 +17,8 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
+    <div class="container centrito2">
+        <div class="row centrito">
             <div class="col-6">
                 <form class="row g-3" id="frm1">
                     <div class="col-md-6">
@@ -27,15 +27,15 @@
                     </div>
                     <div class="col-md-6">
                         <label for="inputNumber" class="form-label">Edad (años)</label>
-                        <input type="number" class="form-control" id="inputNumber">
+                        <input type="number" class="form-control" id="inputNumber" min="1">
                     </div>
                     <div class="col-md-6">
                         <label for="inputNumber2" class="form-label">Peso</label>
-                        <input type="number" class="form-control" id="inputNumber2" placeholder="Kilos">
+                        <input type="number" class="form-control" id="inputNumber2" placeholder="Kilos" min="1">
                     </div>
                     <div class="col-md-6">
                         <label for="inputNumber3" class="form-label">Altura</label>
-                        <input type="number" class="form-control" id="inputNumber3" placeholder="Metros">
+                        <input type="number" class="form-control" id="inputNumber3" placeholder="Metros" min="1">
                     </div>
 
 
@@ -90,23 +90,24 @@
                     </div>
 
                     <div class="col-4">
-                        <div><input type="button" class="btn btn-primary" value="Comenzar" onclick="begin()"></div>
+                        <div><input type="button" class="btn btn-primary" value="Ingresar" onclick="begin()"></div>
                     </div>
                     <div class="col-4">
                         <div><input type="button" class="btn btn-primary" value="Mostrar listado" onclick="mostrar()">
                         </div>
                     </div>
                     <div class="col-4">
-                        <div><input type="button" class="btn btn-primary" value="Guardar" onclick="localSave()"></div>
+                        <div><input type="button" class="btn btn-primary" value="Guardar Datos" onclick="localSave()"></div>
                     </div>
                 </form>
             </div>
             <div class="col-6 ps-5" id="datos">
                 <div class="row" id="listado">
                 </div>
-                <div class="row">
+                <div class="row botonera">
                     <form>
                         <input type="button" value="Ocultar listado" class="btn btn-primary" onclick="remover()">
+                        <input type="button" value="Exportar Datos" class="btn btn-primary" id="export" onclick="generateCSV()">
                     </form>
                 </div>
             </div>
