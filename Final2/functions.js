@@ -58,7 +58,7 @@ function mostrar() {
         mShow.innerHTML = "Pacientes ";
         registrados.forEach(function (item) {
             let turnos1 = registrados.indexOf(item);
-            mShow.innerHTML += `<li> Turno: ${turnos1} &nbsp;&nbsp; ${item.dia}  de ${item.mes} del 2020 A las ${item.hora} turno de ${item.nombre}<i class="ms-4 btn btn-primary bi bi-trash" onclick="remover2(${turnos1})"></i> </li> `;
+            mShow.innerHTML += `<li> Turno: ${turnos1+1} &nbsp;&nbsp; ${item.dia}  de ${item.mes} del 2020 A las ${item.hora} turno de ${item.nombre}<i class="ms-4 btn btn-primary bi bi-trash" onclick="remover2(${turnos1})"></i> </li> `;
         });
         $("#datos").show();
     }
