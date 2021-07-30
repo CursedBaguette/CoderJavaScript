@@ -17,11 +17,19 @@ function begin() {
 //Funcion de Registro
 function registrar(nuevoPaciente) {
     if (nuevoPaciente.nombre == "") {
-        return alert("Faltan Datos");
+        return   Swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Ese turno está utilizado!',
+          })
     } else {
         registrados.forEach(function (item) {
             if (nuevoPaciente.dia === item.dia && nuevoPaciente.mes === item.mes && nuevoPaciente.hora === item.hora) {
-                alert("Turno Ocupado, por favor seleccione otro horario");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Ese turno está utilizado!',
+                  })
                 throw console.log("Turno ocupado");
             }
         })
