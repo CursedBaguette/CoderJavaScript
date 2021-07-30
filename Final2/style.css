@@ -21,7 +21,6 @@ i{
     border: 3px lightblue solid;
     border-radius: 5px;
     margin-top: 25%;
-    background-image: url("coderpng.png")!important;
     background-repeat: repeat-y;
     background-position-x: 90%;
     background-size: 27%;
@@ -38,4 +37,27 @@ i{
 .botonera{
     padding-top: 20px;
     padding-left: 50%;
+}
+
+.logueo{
+    width: 500px;
+    margin-left: 30%;
+}
+
+.sticky{
+    width: 200px;
+    height: 250px;
+    background-color: #FFF888;
+    font-family: 'Indie Flower', cursive;
+    padding-top: 1%;
+    font-weight: bold;
+    float: right;
+    position:sticky;
+    margin-top:-300px;
+    margin-right:300px;
+    box-shadow: 10px 5px 5px black;
+}
+
+hr{
+    color:red;
 }

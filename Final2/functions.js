@@ -19,9 +19,9 @@ function registrar(nuevoPaciente) {
     if (nuevoPaciente.nombre == "" || nuevoPaciente.edad == "" || nuevoPaciente.peso == ""|| nuevoPaciente.altura == ""|| nuevoPaciente.dia == ""|| nuevoPaciente.mes == ""|| nuevoPaciente.hora == "") {
         return   Swal.fire({
             icon: 'error',
-            title: 'Oops...',
-            text: 'Faltan datos!',
-          })
+            title: 'Error de Carga',
+            text: 'Por favor chequee datos ingresados',
+        })
     } else {
         registrados.forEach(function (item) {
             if (nuevoPaciente.dia === item.dia && nuevoPaciente.mes === item.mes && nuevoPaciente.hora === item.hora) {
@@ -29,7 +29,7 @@ function registrar(nuevoPaciente) {
                     icon: 'error',
                     title: 'Oops...',
                     text: 'Ese turno está utilizado!',
-                  })
+                })
                 throw console.log("Turno ocupado");
             }
         })
