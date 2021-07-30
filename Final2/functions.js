@@ -16,11 +16,11 @@ function begin() {
 
 //Funcion de Registro
 function registrar(nuevoPaciente) {
-    if (nuevoPaciente.nombre == "") {
+    if (nuevoPaciente.nombre == "" || nuevoPaciente.edad == "" || nuevoPaciente.peso == ""|| nuevoPaciente.altura == ""|| nuevoPaciente.dia == ""|| nuevoPaciente.mes == ""|| nuevoPaciente.hora == "") {
         return   Swal.fire({
             icon: 'error',
             title: 'Oops...',
-            text: 'Ese turno está utilizado!',
+            text: 'Faltan datos!',
           })
     } else {
         registrados.forEach(function (item) {
