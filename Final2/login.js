@@ -11,7 +11,7 @@ function login() {
     let username = $("#userLogin").val();
     let password = $("#passLogin").val();
     if (username === logueo[0].username && password === logueo[0].password || username === logueo[1].username && password === logueo[1].password) {
-        $(".stricky").hide();
+        $(".sticky").hide();
         $(".logueo").hide()
         Swal.fire({
             icon: 'success',
